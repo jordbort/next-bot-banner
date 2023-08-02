@@ -1,8 +1,4 @@
-interface Props {
-    checkedBots: string[]
-}
-export default function GeneratedList(props: Props) {
+export default function GeneratedList({ props }) {
     const { checkedBots } = props
-    // checkedBots.length ? console.log(`You've got ${checkedBots.length} bots!`) : null
-    return <h2>list goes here</h2>
+    return <h2>list goes here (filtering out: {checkedBots.length})</h2>
 }

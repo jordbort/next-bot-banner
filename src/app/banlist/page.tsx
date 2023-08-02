@@ -6,6 +6,7 @@ import { useState } from "react"
 
 export default function BanList() {
     const [checkedBots, setCheckedBots] = useState<string[]>([])
+    // const [customBotForm, setCustomBotForm] = useState<string>('')
 
     const optionalBots = [
         `7tvapp`,
@@ -44,8 +45,7 @@ export default function BanList() {
         `wzbot`
     ]
 
-    function handleClick(event) {
-        // console.log(checkedBots)
+    function handleCheckClick(event: { target: { value: string } }) {
         if (checkedBots.includes(event.target.value)) {
             // console.log(`already in list!`)
             const idx = checkedBots.indexOf(event.target.value)
@@ -61,14 +61,47 @@ export default function BanList() {
         // console.log(checkedBots)
     }
 
+    function handleSubmit(event: { target: [{ value: string }], defaultPrevented: boolean, preventDefault: any }) {
+        event.preventDefault()
+        const input = event.target[0].value.toLowerCase()
+        if (!checkedBots.includes(input)) {
+            // console.log(`submit:`, customBotForm)
+            const newArr = checkedBots.concat(input)
+            setCheckedBots(newArr)
+            // console.log(event.target[0].value)
+            event.target[0].value = ""
+            // setCustomBotForm("")
+            // console.log(event.defaultPrevented)
+            // console.log(event.target.value)
+        }
+    }
+
+    // function handleChange(event: { target: { value: string } }) {
+    //     // console.log(event.target.value)
+    //     setCustomBotForm(event.target.value)
+    //     // console.log(customBotForm)
+    // }
+
+    // interface Props {
+    //     checkedBots: string[],
+    //     optionalBots: string[],
+    //     handleCheckClick: any,
+    //     handleSubmit: any,
+    //     handleChange: any,
+    //     customBotForm: any,
+    //     setCustomBotForm: any
+    // }
+
+    const props = { checkedBots, optionalBots, handleCheckClick, handleSubmit }
+
     return (
         <main>
             <h1>Ban List</h1>
             <div className="flex gap-10">
-                <CheckedBots checkedBots={checkedBots} optionalBots={optionalBots} />
-                <OptionalList checkedBots={checkedBots} optionalBots={optionalBots} handleClick={handleClick} />
+                <CheckedBots props={props} />
+                <OptionalList props={props} />
             </div>
-            <GeneratedList checkedBots={checkedBots} />
+            <GeneratedList props={props} />
         </main>
     )
 }

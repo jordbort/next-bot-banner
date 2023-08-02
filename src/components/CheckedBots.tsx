@@ -1,17 +1,14 @@
-interface Props {
-    checkedBots: string[],
-    optionalBots: string[]
-}
-export default function CheckedBots(props: Props) {
-    const { checkedBots, optionalBots } = props
+export default function CheckedBots({ props }) {
+    const { checkedBots } = props
     // console.log(`checkedBots:`, checkedBots)
     // console.log(`optionalBots:`, optionalBots)
-    // console.log(`props:`, props)
+    // console.log(`typeof props:`, typeof props)
+    // console.log(`props.props:`, props.props)
     return (
         <div>
             <h3>Checked bots</h3>
             <ul>
-                {checkedBots.map((bot, idx) => {
+                {checkedBots.map((bot: string, idx: number) => {
                     return <li key={idx}>{bot}</li>
                 })}
             </ul>
