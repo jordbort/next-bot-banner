@@ -96,6 +96,16 @@ export default function BanList() {
         setCheckedBots(newArr)
     }
 
+    function handleDelete(event: { target: { value: string } }) {
+        // console.log(event)
+        // const botName = event.target.value
+        const idx = checkedBots.indexOf(event.target.value)
+        const beforePoint = checkedBots.slice(0, idx)
+        const afterPoint = checkedBots.slice(idx + 1)
+        const newArr = beforePoint.concat(afterPoint)
+        setCheckedBots(newArr)
+    }
+
     // function handleChange(event: { target: { value: string } }) {
     //     // console.log(event.target.value)
     //     setCustomBotForm(event.target.value)
@@ -112,7 +122,7 @@ export default function BanList() {
     //     setCustomBotForm: any
     // }
 
-    const props = { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone }
+    const props = { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone, handleDelete }
 
     return (
         <main>
