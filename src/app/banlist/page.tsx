@@ -64,6 +64,7 @@ export default function BanList() {
     function handleSubmit(event: { target: [{ value: string }], defaultPrevented: boolean, preventDefault: any }) {
         event.preventDefault()
         const input = event.target[0].value.toLowerCase()
+        if (!input) { return }
         if (!checkedBots.includes(input)) {
             // console.log(`submit:`, customBotForm)
             const newArr = checkedBots.concat(input)
@@ -79,9 +80,9 @@ export default function BanList() {
     function handleSelectAll() {
         const newArr = checkedBots.splice(0)
         optionalBots.forEach(bot => {
-                if (!checkedBots.includes(bot)) {
-                    newArr.push(bot)
-                }
+            if (!newArr.includes(bot)) {
+                newArr.push(bot)
+            }
         })
         setCheckedBots(newArr)
     }
@@ -89,9 +90,9 @@ export default function BanList() {
     function handleSelectNone() {
         const newArr: string[] = []
         checkedBots.forEach(bot => {
-                if (!optionalBots.includes(bot)) {
-                    newArr.push(bot)
-                }
+            if (!optionalBots.includes(bot)) {
+                newArr.push(bot)
+            }
         })
         setCheckedBots(newArr)
     }

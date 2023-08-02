@@ -10,7 +10,9 @@ export default function CheckedBots({ props }) {
             <ul>
                 {checkedBots.map((bot: string, idx: number) => {
                     return <li key={idx}>
-                        <button onClick={handleDelete} value={bot}>
+                        <button
+                            onClick={handleDelete}
+                            value={bot}>
                             (X)
                         </button>
                         {bot}
