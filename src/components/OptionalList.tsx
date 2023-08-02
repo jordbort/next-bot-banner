@@ -1,11 +1,13 @@
 import CustomBotForm from "./CustomBotForm"
 
 export default function OptionalList({ props }) {
-    const { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleChange } = props
+    const { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleChange, handleSelectAll, handleSelectNone } = props
     // console.log(`checklist props:`, props)
     return (
         <div>
-            <h3>- optional list -</h3>
+            {/* <h3>- optional list -</h3> */}
+            <button onClick={handleSelectAll}>Select All</button>
+            <button onClick={handleSelectNone}>Select None</button>
             <ul>
                 {optionalBots.map((bot: string, idx: number) => {
                     const isSelected = checkedBots.includes(bot)

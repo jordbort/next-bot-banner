@@ -76,6 +76,26 @@ export default function BanList() {
         }
     }
 
+    function handleSelectAll() {
+        const newArr = checkedBots.splice(0)
+        optionalBots.forEach(bot => {
+                if (!checkedBots.includes(bot)) {
+                    newArr.push(bot)
+                }
+        })
+        setCheckedBots(newArr)
+    }
+
+    function handleSelectNone() {
+        const newArr: string[] = []
+        checkedBots.forEach(bot => {
+                if (!optionalBots.includes(bot)) {
+                    newArr.push(bot)
+                }
+        })
+        setCheckedBots(newArr)
+    }
+
     // function handleChange(event: { target: { value: string } }) {
     //     // console.log(event.target.value)
     //     setCustomBotForm(event.target.value)
@@ -92,7 +112,7 @@ export default function BanList() {
     //     setCustomBotForm: any
     // }
 
-    const props = { checkedBots, optionalBots, handleCheckClick, handleSubmit }
+    const props = { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone }
 
     return (
         <main>
