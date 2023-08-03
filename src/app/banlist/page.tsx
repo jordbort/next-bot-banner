@@ -6,7 +6,6 @@ import { useState } from "react"
 
 export default function BanList() {
     const [checkedBots, setCheckedBots] = useState<string[]>([])
-    // const [customBotForm, setCustomBotForm] = useState<string>('')
 
     const optionalBots = [
         `7tvapp`,
@@ -66,14 +65,9 @@ export default function BanList() {
         const input = event.target[0].value.toLowerCase()
         if (!input) { return }
         if (!checkedBots.includes(input)) {
-            // console.log(`submit:`, customBotForm)
             const newArr = checkedBots.concat(input)
             setCheckedBots(newArr)
-            // console.log(event.target[0].value)
             event.target[0].value = ""
-            // setCustomBotForm("")
-            // console.log(event.defaultPrevented)
-            // console.log(event.target.value)
         }
     }
 
@@ -110,12 +104,6 @@ export default function BanList() {
     function handleClear() {
         setCheckedBots([])
     }
-
-    // function handleChange(event: { target: { value: string } }) {
-    //     // console.log(event.target.value)
-    //     setCustomBotForm(event.target.value)
-    //     // console.log(customBotForm)
-    // }
 
     // interface Props {
     //     checkedBots: string[],
