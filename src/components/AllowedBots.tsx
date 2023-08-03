@@ -1,19 +1,19 @@
 export default function CheckedBots({ props }) {
-    const { checkedBots, handleDelete } = props
+    const { checkedBots, setCheckedBots, handleDelete, handleClear } = props
     // console.log(`checkedBots:`, checkedBots)
     // console.log(`optionalBots:`, optionalBots)
     // console.log(`typeof props:`, typeof props)
     // console.log(`props.props:`, props.props)
     return (
         <div>
-            <h3>Allowed bots</h3>
+            <button onClick={handleClear}>Clear All</button>
             <ul>
                 {checkedBots.map((bot: string, idx: number) => {
                     return <li key={idx}>
                         <button
                             onClick={handleDelete}
                             value={bot}>
-                            (X)
+                            {`[`}X{`]`}
                         </button>
                         {bot}
                     </li>

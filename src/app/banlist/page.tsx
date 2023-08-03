@@ -107,6 +107,10 @@ export default function BanList() {
         setCheckedBots(newArr)
     }
 
+    function handleClear() {
+        setCheckedBots([])
+    }
+
     // function handleChange(event: { target: { value: string } }) {
     //     // console.log(event.target.value)
     //     setCustomBotForm(event.target.value)
@@ -123,11 +127,11 @@ export default function BanList() {
     //     setCustomBotForm: any
     // }
 
-    const props = { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone, handleDelete }
+    const props = { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone, handleDelete, handleClear }
 
     return (
         <main>
-            <h1>Ban List</h1>
+            <h1>Allowed bots</h1>
             <div className="flex gap-10">
                 <AllowedBots props={props} />
                 <OptionalList props={props} />
