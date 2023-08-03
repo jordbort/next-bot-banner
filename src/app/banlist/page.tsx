@@ -1,5 +1,5 @@
 "use client"
-import CheckedBots from "@/components/CheckedBots"
+import AllowedBots from "@/components/AllowedBots"
 import OptionalList from "@/components/OptionalList"
 import GeneratedList from "@/components/GeneratedList"
 import { useState } from "react"
@@ -129,7 +129,7 @@ export default function BanList() {
         <main>
             <h1>Ban List</h1>
             <div className="flex gap-10">
-                <CheckedBots props={props} />
+                <AllowedBots props={props} />
                 <OptionalList props={props} />
             </div>
             <GeneratedList props={props} />
