@@ -1,4 +1,6 @@
-export default function CustomBotForm(props: { handleSubmit: any }) {
+import { FormEventHandler } from "react"
+
+export default function CustomBotForm(props: { handleSubmit: FormEventHandler<HTMLFormElement> }) {
     const { handleSubmit } = props
     return (
         <form onSubmit={handleSubmit}>

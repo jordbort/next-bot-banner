@@ -60,7 +60,7 @@ export default function BanList() {
         // console.log(checkedBots)
     }
 
-    function handleSubmit(event: { target: [{ value: string }], preventDefault: () => void }) {
+    function handleSubmit(event: { preventDefault: () => void; target: { value: string }[] }) {
         event.preventDefault()
         const input = event.target[0].value.toLowerCase()
         if (!input) { return }
@@ -104,19 +104,6 @@ export default function BanList() {
     function handleClear() {
         setCheckedBots([])
     }
-
-    // interface Props {
-    //     checkedBots: string[],
-    //     optionalBots: string[],
-    //     handleCheckClick: any,
-    //     handleSubmit: any,
-    //     handleSelectAll: any,
-    //     handleSelectNone: any,
-    //     handleDelete: any,
-    //     handleClear: any
-    // }
-
-    // const props = { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone, handleDelete, handleClear }
 
     return (
         <main>
