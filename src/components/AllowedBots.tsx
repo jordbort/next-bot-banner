@@ -1,4 +1,4 @@
-export default function CheckedBots({ props }) {
+export default function CheckedBots(props: { checkedBots: string[], handleDelete: any, handleClear: any }) {
     const { checkedBots, handleDelete, handleClear } = props
     return (
         <div>

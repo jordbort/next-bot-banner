@@ -1,4 +1,4 @@
-export default function CustomBotForm(props: any) {
+export default function CustomBotForm(props: { handleSubmit: any }) {
     const { handleSubmit } = props
     return (
         <form onSubmit={handleSubmit}>

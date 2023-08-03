@@ -60,7 +60,7 @@ export default function BanList() {
         // console.log(checkedBots)
     }
 
-    function handleSubmit(event: { target: [{ value: string }], defaultPrevented: boolean, preventDefault: any }) {
+    function handleSubmit(event: { target: [{ value: string }], preventDefault: () => void }) {
         event.preventDefault()
         const input = event.target[0].value.toLowerCase()
         if (!input) { return }
@@ -116,16 +116,16 @@ export default function BanList() {
     //     handleClear: any
     // }
 
-    const props = { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone, handleDelete, handleClear }
+    // const props = { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone, handleDelete, handleClear }
 
     return (
         <main>
             <h1>Allowed bots</h1>
             <div className="flex gap-10">
-                <AllowedBots props={props} />
-                <OptionalList props={props} />
+                <AllowedBots checkedBots={checkedBots} handleDelete={handleDelete} handleClear={handleClear} />
+                <OptionalList checkedBots={checkedBots} optionalBots={optionalBots} handleCheckClick={handleCheckClick} handleSubmit={handleSubmit} handleSelectAll={handleSelectAll} handleSelectNone={handleSelectNone} />
             </div>
-            <GeneratedList props={props} />
+            <GeneratedList checkedBots={checkedBots} />
         </main>
     )
 }

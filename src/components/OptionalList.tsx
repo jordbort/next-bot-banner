@@ -1,6 +1,6 @@
 import CustomBotForm from "./CustomBotForm"
 
-export default function OptionalList({ props }) {
+export default function OptionalList(props: { checkedBots: string[]; optionalBots: string[]; handleCheckClick: any; handleSubmit: any; handleSelectAll: any; handleSelectNone: any }) {
     const { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone } = props
     // console.log(`checklist props:`, props)
     return (
