@@ -1,14 +1,11 @@
-export default function CustomBotForm(props) {
-    const { handleSubmit, customBotForm, setCustomBotForm, handleChange } = props
-    // console.log(`customBotForm:`, customBotForm)
+export default function CustomBotForm(props: any) {
+    const { handleSubmit } = props
     return (
-        <form onSubmit={handleSubmit} onChange={handleChange}>
+        <form onSubmit={handleSubmit}>
             <input
                 type="text"
                 name="custom-bot"
                 placeholder="Additional bot"
-            // onChange={textInput}
-            // value={customBot}
             />
             <button type="submit">Submit</button>
         </form>

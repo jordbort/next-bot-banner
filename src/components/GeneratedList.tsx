@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function GeneratedList(props: { checkedBots: string[] }) {
+export default function GeneratedList({ props }) {
     const { checkedBots } = props
 
     const [results, setResults] = useState<string[]>([])

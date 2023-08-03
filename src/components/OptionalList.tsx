@@ -1,7 +1,7 @@
 import CustomBotForm from "./CustomBotForm"
 
 export default function OptionalList({ props }) {
-    const { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleChange, handleSelectAll, handleSelectNone } = props
+    const { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone } = props
     // console.log(`checklist props:`, props)
     return (
         <div>
@@ -19,7 +19,7 @@ export default function OptionalList({ props }) {
                     )
                 })}
             </ul>
-            <CustomBotForm handleSubmit={handleSubmit} handleChange={handleChange} />
+            <CustomBotForm handleSubmit={handleSubmit} />
         </div>
     )
 }

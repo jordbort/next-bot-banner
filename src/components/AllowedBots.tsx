@@ -1,9 +1,5 @@
 export default function CheckedBots({ props }) {
-    const { checkedBots, setCheckedBots, handleDelete, handleClear } = props
-    // console.log(`checkedBots:`, checkedBots)
-    // console.log(`optionalBots:`, optionalBots)
-    // console.log(`typeof props:`, typeof props)
-    // console.log(`props.props:`, props.props)
+    const { checkedBots, handleDelete, handleClear } = props
     return (
         <div>
             <button onClick={handleClear}>Clear All</button>

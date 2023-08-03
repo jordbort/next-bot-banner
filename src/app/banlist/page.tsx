@@ -110,9 +110,10 @@ export default function BanList() {
     //     optionalBots: string[],
     //     handleCheckClick: any,
     //     handleSubmit: any,
-    //     handleChange: any,
-    //     customBotForm: any,
-    //     setCustomBotForm: any
+    //     handleSelectAll: any,
+    //     handleSelectNone: any,
+    //     handleDelete: any,
+    //     handleClear: any
     // }
 
     const props = { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone, handleDelete, handleClear }
