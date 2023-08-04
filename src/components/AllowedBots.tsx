@@ -1,5 +1,12 @@
-export default function CheckedBots(props: { checkedBots: string[], handleDelete: any, handleClear: any }) {
-    const { checkedBots, handleDelete, handleClear } = props
+import { MouseEventHandler } from "react"
+
+interface Props {
+    checkedBots: string[]
+    handleDelete: MouseEventHandler<HTMLButtonElement>
+    handleClear: MouseEventHandler<HTMLButtonElement>
+}
+
+export default function CheckedBots({ checkedBots, handleDelete, handleClear }: Props) {
     return (
         <div>
             <button onClick={handleClear}>Clear All</button>

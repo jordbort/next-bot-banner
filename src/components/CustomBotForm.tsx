@@ -1,7 +1,10 @@
 import { FormEventHandler } from "react"
 
-export default function CustomBotForm(props: { handleSubmit: FormEventHandler<HTMLFormElement> }) {
-    const { handleSubmit } = props
+interface Props {
+    handleSubmit: FormEventHandler<HTMLFormElement>
+}
+
+export default function CustomBotForm({ handleSubmit }: Props) {
     return (
         <form onSubmit={handleSubmit}>
             <input

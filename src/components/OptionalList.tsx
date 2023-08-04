@@ -1,9 +1,16 @@
-import { ChangeEventHandler, MouseEventHandler } from "react"
+import { ChangeEventHandler, FormEventHandler, MouseEventHandler } from "react"
 import CustomBotForm from "./CustomBotForm"
 
-export default function OptionalList(props: { checkedBots: string[]; optionalBots: string[]; handleCheckClick: ChangeEventHandler<HTMLInputElement>; handleSubmit: any; handleSelectAll: MouseEventHandler<HTMLButtonElement>; handleSelectNone: MouseEventHandler<HTMLButtonElement> }) {
-    const { checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone } = props
-    // console.log(`checklist props:`, props)
+interface Props {
+    checkedBots: string[]
+    optionalBots: string[]
+    handleCheckClick: ChangeEventHandler<HTMLInputElement>
+    handleSubmit: FormEventHandler<HTMLFormElement>
+    handleSelectAll: MouseEventHandler<HTMLButtonElement>
+    handleSelectNone: MouseEventHandler<HTMLButtonElement>
+}
+
+export default function OptionalList({ checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone }: Props) {
     return (
         <div>
             {/* <h3>- optional list -</h3> */}

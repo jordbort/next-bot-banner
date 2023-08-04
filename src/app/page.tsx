@@ -2,8 +2,8 @@
 import AllowedBots from "@/components/AllowedBots"
 import OptionalList from "@/components/OptionalList"
 import GeneratedList from "@/components/GeneratedList"
-// import Link from "next/link";
-import { useState } from "react";
+// import Link from "next/link"
+import { MouseEventHandler, useState } from "react"
 
 export default function Home() {
     const [checkedBots, setCheckedBots] = useState<string[]>([])
@@ -61,17 +61,6 @@ export default function Home() {
         // console.log(checkedBots)
     }
 
-    function handleSubmit(event: { preventDefault: () => void; target: { value: string }[] }) {
-        event.preventDefault()
-        const input = event.target[0].value.toLowerCase()
-        if (!input) { return }
-        if (!checkedBots.includes(input)) {
-            const newArr = checkedBots.concat(input)
-            setCheckedBots(newArr)
-            event.target[0].value = ""
-        }
-    }
-
     function handleSelectAll() {
         const newArr = checkedBots.splice(0)
         optionalBots.forEach(bot => {
@@ -92,7 +81,22 @@ export default function Home() {
         setCheckedBots(newArr)
     }
 
-    function handleDelete(event: { target: { value: string } }) {
+    function handleClear() {
+        setCheckedBots([])
+    }
+
+    function handleSubmit(event: any) {
+        event.preventDefault()
+        const input = event.target[0].value.toLowerCase()
+        if (!input) { return }
+        if (!checkedBots.includes(input)) {
+            const newArr = checkedBots.concat(input)
+            setCheckedBots(newArr)
+            event.target[0].value = ""
+        }
+    }
+
+    function handleDelete(event: any) {
         // console.log(event)
         // const botName = event.target.value
         const idx = checkedBots.indexOf(event.target.value)
@@ -100,10 +104,6 @@ export default function Home() {
         const afterPoint = checkedBots.slice(idx + 1)
         const newArr = beforePoint.concat(afterPoint)
         setCheckedBots(newArr)
-    }
-
-    function handleClear() {
-        setCheckedBots([])
     }
 
     return (
