@@ -103,8 +103,9 @@ export default function Home() {
 
     return (
         <main>
-            <h1>Allowed bots</h1>
-            <div className="flex gap-10">
+            <h1 className="page-title">Twitch ban list generator</h1>
+            <p className="description">Use the checklist below if you would like to exclude any usernames from your ban list, generated below. This might include usernames that are technically bots, but are commonly used for moderation or entertainment purposes, such as Nightbot, StreamElements, etc.</p>
+            <div className="lists-container">
                 <AllowedBots checkedBots={checkedBots} handleDelete={handleDelete} handleClear={handleClear} />
                 <OptionalList checkedBots={checkedBots} optionalBots={optionalBots} handleCheckClick={handleCheckClick} handleSubmit={handleSubmit} handleSelectAll={handleSelectAll} handleSelectNone={handleSelectNone} />
             </div>

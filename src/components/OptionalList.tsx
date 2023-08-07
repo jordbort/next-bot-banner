@@ -12,8 +12,8 @@ interface Props {
 
 export default function OptionalList({ checkedBots, optionalBots, handleCheckClick, handleSubmit, handleSelectAll, handleSelectNone }: Props) {
     return (
-        <div>
-            {/* <h3>- optional list -</h3> */}
+        <div className="optional-list">
+            <h4>Optional known bots to exclude:</h4>
             <button onClick={handleSelectAll}>Select All</button>
             <button onClick={handleSelectNone}>Select None</button>
             <ul>
@@ -27,6 +27,7 @@ export default function OptionalList({ checkedBots, optionalBots, handleCheckCli
                     )
                 })}
             </ul>
+            <hr />
             <CustomBotForm handleSubmit={handleSubmit} />
         </div>
     )

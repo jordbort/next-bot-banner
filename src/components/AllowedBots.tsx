@@ -8,20 +8,22 @@ interface Props {
 
 export default function CheckedBots({ checkedBots, handleDelete, handleClear }: Props) {
     return (
-        <div>
-            <button onClick={handleClear}>Clear All</button>
-            <ul>
-                {checkedBots.map((bot: string, idx: number) => {
-                    return <li key={idx}>
-                        <button
-                            onClick={handleDelete}
-                            value={bot}>
-                            {`[`}X{`]`}
-                        </button>
-                        {bot}
-                    </li>
-                })}
-            </ul>
+        <div className="allowed-list">
+            <h4>Excluding {checkedBots.length} {checkedBots.length === 1 ? "username" : "usernames"}:</h4>
+            {checkedBots.length ? <>
+                <button onClick={handleClear}>Clear All</button>
+                <ul>
+                    {checkedBots.map((bot: string, idx: number) => {
+                        return <li key={idx}>
+                            <button
+                                onClick={handleDelete}
+                                className="remove-button"
+                                value={bot}>X</button>
+                            {bot}
+                        </li>
+                    })}
+                </ul>
+            </> : null}
         </div>
     )
 }

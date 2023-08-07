@@ -6,7 +6,7 @@ interface Props {
 
 export default function GeneratedList({ checkedBots }: Props) {
     const [results, setResults] = useState<string[]>([])
-    const [loadingText, setLoadingText] = useState<string>('')
+    const [loadingText, setLoadingText] = useState<string>('Click the button to generate your ban list!')
 
     function fetchBots() {
         setResults([])
@@ -27,13 +27,16 @@ export default function GeneratedList({ checkedBots }: Props) {
     }
 
     return (
-        <div>
-            <h2>(filtering out: {checkedBots.length})</h2>
+        <>
             <button onClick={fetchBots}>Generate List</button>
-            <p>Number of bots in ban list: {results.length}</p>
-            <ol>
-                {results.length ? results.map((robot, idx) => <li key={idx}>{robot}</li>) : <li>{loadingText}</li>}
-            </ol>
-        </div>
+            <div className="generated-list">
+                {results.length ? <>
+                    <h4>Total usernames in ban list: {results.length.toLocaleString()}</h4>
+                    <ul>
+                        {results.map((robot, idx) => <li key={idx}>{robot}</li>)}
+                    </ul>
+                </> : <p>{loadingText}</p>}
+            </div>
+        </>
     )
 }
