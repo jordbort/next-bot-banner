@@ -33,6 +33,10 @@ nav a {
     color: #ffffff;
 }
 
+main a {
+    color: #ffffff;
+}
+
 main {
     margin: 0 320px 64px;
     display: flex;
@@ -81,6 +85,14 @@ ul {
 
 .generated-list {
     margin-top: 16px;
+}
+
+.margin-top-16 {
+    margin-top: 16px;
+}
+
+.center {
+    text-align: center;
 }
 
 .debug {

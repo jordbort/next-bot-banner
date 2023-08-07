@@ -29,7 +29,7 @@ export default function GeneratedList({ checkedBots }: Props) {
     return (
         <>
             <button onClick={fetchBots}>Generate List</button>
-            <div className="generated-list">
+            <div className="margin-top-16">
                 {results.length ? <>
                     <h4>Total usernames in ban list: {results.length.toLocaleString()}</h4>
                     <button onClick={() => navigator.clipboard.writeText(results.join(`\n`))}>Copy List</button>
