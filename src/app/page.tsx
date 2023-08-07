@@ -2,8 +2,7 @@
 import AllowedBots from "@/components/AllowedBots"
 import OptionalList from "@/components/OptionalList"
 import GeneratedList from "@/components/GeneratedList"
-// import Link from "next/link"
-import { MouseEventHandler, useState } from "react"
+import { useState } from "react"
 
 export default function Home() {
     const [checkedBots, setCheckedBots] = useState<string[]>([])
