@@ -47,18 +47,15 @@ export default function Home() {
 
     function handleCheckClick(event: { target: { value: string } }) {
         if (checkedBots.includes(event.target.value)) {
-            // console.log(`already in list!`)
             const idx = checkedBots.indexOf(event.target.value)
             const beforePoint = checkedBots.slice(0, idx)
             const afterPoint = checkedBots.slice(idx + 1)
             const newArr = beforePoint.concat(afterPoint)
             setCheckedBots(newArr)
         } else {
-            // console.log(`adding to list...`)
             const newArr = checkedBots.concat(event.target.value)
             setCheckedBots(newArr)
         }
-        // console.log(checkedBots)
     }
 
     function handleSelectAll() {
@@ -97,8 +94,6 @@ export default function Home() {
     }
 
     function handleDelete(event: any) {
-        // console.log(event)
-        // const botName = event.target.value
         const idx = checkedBots.indexOf(event.target.value)
         const beforePoint = checkedBots.slice(0, idx)
         const afterPoint = checkedBots.slice(idx + 1)
