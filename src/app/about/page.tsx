@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function About() {
     return (
-        <main>
+        <main className="about-page">
             <h1 className="page-title">About</h1>
             <p className="description">
                 Created by Jordan Bortner / <Link href="https://www.twitch.tv/jpegstripes" target="_blank">JPEGSTRIPES</Link> on Twitch.
