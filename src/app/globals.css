@@ -50,6 +50,10 @@ ul {
     padding: 0;
 }
 
+label {
+    color: #ffffff;
+}
+
 .page-title {
     margin-top: 40px;
     text-align: center;
