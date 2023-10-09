@@ -9,6 +9,8 @@ export default function GeneratedList({ checkedBots }: Props) {
     const [checked, setChecked] = useState<boolean>(false)
     const [loadingText, setLoadingText] = useState<string>('Click the button to generate your ban list!')
 
+    const maxDaysActive: number = 14
+
     function fetchBots() {
         setResults([])
         setLoadingText('Loading...')
@@ -20,8 +22,9 @@ export default function GeneratedList({ checkedBots }: Props) {
                 json.bots.forEach((entry: [botName: string, channels: number, num: number]) => {
                     if (!checkedBots.includes(entry[0])) {
                         if (checked) {
-                            const monthAgo = Math.floor(Date.now() / 1000) - 2592000
-                            entry[2] >= monthAgo && newArr.push(entry[0])
+                            const day = 86400
+                            const activePeriod = Math.floor(Date.now() / 1000) - (day * maxDaysActive)
+                            entry[2] >= activePeriod && newArr.push(entry[0])
                         } else {
                             newArr.push(entry[0])
                         }
@@ -35,7 +38,7 @@ export default function GeneratedList({ checkedBots }: Props) {
     return (
         <>
             <div>
-                <label htmlFor="recent">Only get bots active in the past 30 days?</label>
+                <label htmlFor="recent">Only get bots active in the past {maxDaysActive} {maxDaysActive === 1 ? `day` : `days`}?</label>
                 <input type="checkbox" id="recent" checked={checked} onChange={() => setChecked(!checked)} />
             </div>
             <button onClick={fetchBots}>Generate List</button>
