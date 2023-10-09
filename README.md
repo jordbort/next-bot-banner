@@ -1,6 +1,6 @@
 # TwitchTV Bot Banner
 
-The site is deployed at: <a href='https://ttv-bot-banner.netlify.app/' target='_blank'>https://ttv-bot-banner.netlify.app/</a>
+The site is deployed at: [https://ttv-bot-banner.netlify.app/](https://ttv-bot-banner.netlify.app/)
 
 This web application can be used to generate a list of Twitch viewer bots. You can use this as a banlist to clean up your Twitch chatroom. Why? Well, besides being flooding your chat viewer list and making it difficult to read, some moderation bots have features that can select a "chatter" at random, and having the option to choose a non-human chat member unintentionally may possibly be an undesirable experience.
 
