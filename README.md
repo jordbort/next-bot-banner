@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TwitchTV Bot Banner
 
-## Getting Started
+The site is deployed at: <a href='https://ttv-bot-banner.netlify.app/' target='_blank'>https://ttv-bot-banner.netlify.app/</a>
 
-First, run the development server:
+This web application can be used to generate a list of Twitch viewer bots. You can use this as a banlist to clean up your Twitch chatroom. Why? Well, besides being flooding your chat viewer list and making it difficult to read, some moderation bots have features that can select a "chatter" at random, and having the option to choose a non-human chat member unintentionally may possibly be an undesirable experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Many Twitch bots are widely used, which means they will show up in this list. It is important to whitelist them to avoid accidentally including bots that you don't actually want to ban. A reasonably robust whitelist has been provided, and you may choose to select all from it for convenience. Otherwise, you can manually check approved bots to filter from the banlist.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<img src='https://github.com/jordbort/next-bot-banner/assets/115664302/f9f60c19-30cd-4590-ad00-87607507e1b2' alt='Main checklist interface' />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+If you have a known bot to exclude from the banlist that isn't included in the provided whitelist, you can enter it into the text field.
 
-## Learn More
+<img src='https://github.com/jordbort/next-bot-banner/assets/115664302/4736a115-5f2e-4c45-90ef-e6a8e0adb3f5' alt='Input custom bot name' />
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Finally, you can choose to filter out bots that have not been active recently. Generally, the list of all Twitch viewer bots is well over 6,000 usernames. However, returning only recently-active bots keeps the list to around 150 usernames. If you routinely use this tool to keep your viewer list clean, then this can be helpful for keeping the banlist short and relevant.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<img src='https://github.com/jordbort/next-bot-banner/assets/115664302/a21e7c4f-e8bf-4f2e-8be2-09eff661ab12' alt='Checkbox to filter for only recently-active bots' />
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I personally use a macro to feed my banlist into the Twitch chatbox, as in "/ban (username) viewer bot", but I have provided further explanation on possible uses on the [About page](https://ttv-bot-banner.netlify.app/about). I hope you find this tool useful!
