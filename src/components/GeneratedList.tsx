@@ -57,7 +57,6 @@ export default function GeneratedList({ checkedBots }: Props) {
                     <h4>Total usernames in ban list: {results.length.toLocaleString()}</h4>
                     <button className="copy-button" onClick={() => navigator.clipboard.writeText(results.join(`\n`))}>Copy List</button>
                     <button className="storage-button" onClick={() => localStorage.setItem(`banned-list`, results.toString())}>Remember List</button>
-                    <button className="clear-button" onClick={() => localStorage.removeItem(`banned-list`)}>Clear List</button>
                     <ul>
                         {results.map((robot, idx) => <li key={idx}>{robot}</li>)}
                     </ul>
