@@ -8,9 +8,10 @@ export default function BanList() {
         <main className="ban-list-page">
             <h1 className="page-title">My Ban List</h1>
             <p className="description">
-                Your ban list can be stored in your web browser{`'`}s memory on this computer.
+                Your ban list keeps track of accounts that you have already remembered, which don{`'`}t need to be banned again.
+                It can be stored in your web browser{`'`}s memory on this computer to make future generated lists shorter.
                 After generating a list of accounts to ban on the home page, you have the option to save it by clicking the {`"`}Remember List{`"`} button.
-                This list is not reflective of which accounts are or are not actually banned from your Twitch channel, but will make future queries shorter by filtering out redundancies.
+                This list is not reflective of which accounts are or are not actually banned from your Twitch channel.
                 {rememberedBots.length > 0 && ` You may clear this list by clicking the "Clear List" button below. (You'll have to refresh the page to see the changes reflected.)`}
             </p>
             <p>

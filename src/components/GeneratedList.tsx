@@ -13,7 +13,6 @@ export default function GeneratedList({ checkedBots }: Props) {
     const maxDaysActive: number = 14
     const bannedList: string | null = localStorage.getItem(`banned-list`)
     const rememberedBots: string[] = bannedList ? bannedList.split(`,`) : []
-    console.log(`${rememberedBots.length} bots in memory`)
 
     function fetchBots() {
         setResults([])
