@@ -1,8 +1,14 @@
 "use client"
 
+import { useEffect, useState } from "react"
+
 export default function BanList() {
-    const bannedList: string | null = localStorage.getItem(`banned-list`)
+    const [bannedList, setBannedList] = useState<string | null>(null)
     const rememberedBots: string[] = bannedList ? bannedList.split(`,`) : []
+
+    useEffect(() => {
+        setBannedList(localStorage.getItem(`banned-list`))
+    }, [])
 
     return (
         <main className="ban-list-page">
@@ -12,7 +18,7 @@ export default function BanList() {
                 It can be stored in your web browser{`'`}s memory on this computer to make future generated lists shorter.
                 After generating a list of accounts to ban on the home page, you have the option to save it by clicking the {`"`}Remember List{`"`} button.
                 This list is not reflective of which accounts are or are not actually banned from your Twitch channel.
-                {rememberedBots.length > 0 && ` You may clear this list by clicking the "Clear List" button below. (You'll have to refresh the page to see the changes reflected.)`}
+                You may clear this list by clicking the {`"`}Clear List{`"`} button below, if there are any. {`(`}You{`'`}ll have to refresh the page to see the changes reflected.{`)`}
             </p>
             <p>
                 Your ban list currently contains {rememberedBots.length.toLocaleString()} {rememberedBots.length === 1 ? `bot` : `bots`}.

@@ -1,18 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 interface Props {
     checkedBots: string[]
 }
 
 export default function GeneratedList({ checkedBots }: Props) {
+    const maxDaysActive: number = 14
+    const [bannedList, setBannedList] = useState<string | null>(null)
+    const rememberedBots: string[] = bannedList ? bannedList.split(`,`) : []
     const [results, setResults] = useState<string[]>([])
     const [recentChecked, setRecentChecked] = useState<boolean>(false)
     const [filterChecked, setFilterChecked] = useState<boolean>(true)
     const [loadingText, setLoadingText] = useState<string>('Click the button to generate your ban list!')
 
-    const maxDaysActive: number = 14
-    const bannedList: string | null = localStorage.getItem(`banned-list`)
-    const rememberedBots: string[] = bannedList ? bannedList.split(`,`) : []
+    useEffect(() => {
+        setBannedList(localStorage.getItem(`banned-list`))
+    }, [])
 
     function fetchBots() {
         setResults([])
