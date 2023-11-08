@@ -5,13 +5,17 @@ export default function About() {
         <main className="about-page">
             <h1 className="page-title">About</h1>
             <p className="description">
-                I recommend copy/pasting your generated list of usernames into <Link href="https://twitch-tools.rootonline.de/blocklist_manager.php" target="_blank">CommanderRoot{`'`}s {`"`}Blocklist manager{`"`}</Link> moderation tools {`(`}you can skip loading blocked users{`)`} to process the batch quickly.
-                There is a {`"`}block known bots{`"`} option available there, but it has over 7 million usernames in it, way too many for routine maintenance. 🙃
+                If you{`'`}re like me, you like to keep your Twitch channel{`'`}s chat list free from viewer bot accounts.
+                This is desirable because it keeps the list clean, accurate, and easier to read.
+                After generating a list of usernames to ban on the home page, I recommend copy/pasting it into <Link href="https://twitch-tools.rootonline.de/blocklist_manager.php" target="_blank">CommanderRoot{`'`}s {`"`}Blocklist manager{`"`}</Link> moderation tools {`(`}you can skip loading blocked users{`)`} to process the batch quickly.
+                There is actually a {`"`}block known bots{`"`} option available there, but it has over 7 million usernames in it, which takes forever to run. 🙃
                 This application uses the {`"`}All Known Bots{`"`} API from <Link href="https://twitchinsights.net/bots" target="_blank">Twitch Insights</Link>.
                 The generated list is generally over 6,000 usernames, which the above tool can process in less than 10 minutes.
+                New bot accounts appear all the time, so I personally like to perform routine cleanup.
+                Fortunately, this application also allows you to store your banned accounts to filter them out from future lists and keep them shorter and more manageable.
                 The optional ban whitelist was borrowed from <Link href="https://ban-twitch-bots.sirmre.com/" target="_blank">this site</Link>.
-                Created by Jordan Bortner / <Link href="https://www.twitch.tv/jpegstripes" target="_blank">JPEGSTRIPES</Link> on Twitch.
-                Check out this project{`'`}s <Link href="https://github.com/jordbort/next-bot-banner" target="_blank">repository on GitHub</Link>!
+                This project was created by Jordan Bortner / <Link href="https://www.twitch.tv/jpegstripes" target="_blank">JPEGSTRIPES</Link> on Twitch.
+                Check out the <Link href="https://github.com/jordbort/next-bot-banner" target="_blank">code repository on GitHub</Link>!
             </p>
             <p className="margin-top-16">Technologies used:</p>
             <ul className="center">
