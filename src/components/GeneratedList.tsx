@@ -13,6 +13,7 @@ export default function GeneratedList({ checkedBots }: Props) {
     const maxDaysActive: number = 14
     const bannedList: string | null = localStorage.getItem(`banned-list`)
     const rememberedBots: string[] = bannedList ? bannedList.split(`,`) : []
+    console.log(`${rememberedBots.length} bots in memory`)
 
     function fetchBots() {
         setResults([])
@@ -33,7 +34,15 @@ export default function GeneratedList({ checkedBots }: Props) {
                 })
                 setLoadingText('')
                 setResults(newArr)
+                newArr.length === 0 && setLoadingText(`No accounts found!`)
             })
+    }
+
+    function updateList() {
+        results.map((bot) => {
+            if (!rememberedBots.includes(bot)) { rememberedBots.push(bot) }
+        })
+        localStorage.setItem(`banned-list`, rememberedBots.toString())
     }
 
     return (
@@ -56,7 +65,7 @@ export default function GeneratedList({ checkedBots }: Props) {
                 {results.length ? <>
                     <h4>Total usernames in ban list: {results.length.toLocaleString()}</h4>
                     <button className="copy-button" onClick={() => navigator.clipboard.writeText(results.join(`\n`))}>Copy List</button>
-                    <button className="storage-button" onClick={() => localStorage.setItem(`banned-list`, results.toString())}>Remember List</button>
+                    <button className="storage-button" onClick={updateList}>Remember List</button>
                     <ul>
                         {results.map((robot, idx) => <li key={idx}>{robot}</li>)}
                     </ul>
