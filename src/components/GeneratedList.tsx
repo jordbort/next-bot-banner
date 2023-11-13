@@ -56,7 +56,7 @@ export default function GeneratedList({ checkedBots }: Props) {
 
             {rememberedBots.length > 0 &&
                 <div>
-                    <label htmlFor="filter">Exclude {rememberedBots.length.toLocaleString()} remembered bots?</label>
+                    <label htmlFor="filter">Exclude {rememberedBots.length.toLocaleString()} remembered username{rememberedBots.length === 1 ? `` : `s`}?</label>
                     <input type="checkbox" id="filter" checked={filterChecked} onChange={() => setFilterChecked(!filterChecked)} />
                 </div>
             }
