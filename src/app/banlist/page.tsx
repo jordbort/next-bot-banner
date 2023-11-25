@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react"
 
 export default function BanList() {
+    const [loaded, setLoaded] = useState<boolean>(false)
     const [bannedList, setBannedList] = useState<string | null>(null)
     const rememberedBots: string[] = bannedList ? bannedList.split(`,`) : []
 
     useEffect(() => {
         setBannedList(localStorage.getItem(`banned-list`))
+        setLoaded(true)
     }, [])
 
     return (
@@ -20,13 +22,15 @@ export default function BanList() {
                 This list is not reflective of which accounts are or are not actually banned from your Twitch channel.
                 You may clear this list by clicking the {`"`}Clear List{`"`} button below, if there are any. {`(`}You{`'`}ll have to refresh the page to see the changes reflected.{`)`}
             </p>
-            <p>
-                Your ban list currently contains {rememberedBots.length.toLocaleString()} {rememberedBots.length === 1 ? `bot` : `bots`}.
-            </p>
-            {rememberedBots.length > 0 && <button className="clear-button" onClick={() => { localStorage.removeItem(`banned-list`) }}>Clear List</button>}
-            <ol>
-                {rememberedBots.map((robot, idx) => <li key={idx}>{robot}</li>)}
-            </ol>
+            {loaded && <div>
+                <p>
+                    Your ban list currently contains {rememberedBots.length.toLocaleString()} {rememberedBots.length === 1 ? `bot` : `bots`}.
+                </p>
+                {rememberedBots.length > 0 && <button className="clear-button" onClick={() => { localStorage.removeItem(`banned-list`) }}>Clear List</button>}
+                <ol>
+                    {rememberedBots.map((robot, idx) => <li key={idx}>{robot}</li>)}
+                </ol>
+            </div>}
         </main>
     )
 }
